@@ -42,7 +42,7 @@ class Wall:
     def f(z):
       z = (math.tan(self.rotation[0]) * (x - self.Position[0]) + math.tan(self.rotation[1]) * (y - self.Position[1]) + self.Position[2]) / math.tan(self.rotation[2])
 
-  def VectorReflection(self): # damn... this is hard.
+  def VectorReflection(self):
     Normal = (math.tan(self.rotation[0]), math.tan(self.rotation[1]), math.tan(self.rotation[2]))
     if col == True:
       self.body.Velocity[0] = self.body.Velocity[0] -2 * (self.body.Velocity[0]*Normal[0])
