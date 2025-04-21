@@ -33,18 +33,24 @@ class bodies:
     self.Velocity[0] += Wind
 
 class Wall:
-  def __init__(self, body, Position=(0,0,0), rotation=(0,0,0)):
+  def __init__(self, body, Position=(0,0,0), rotation=(0,0)):
     self.Position = list(Position)
     self.rotation = list(rotation)
     self.body = body
 
   def SetPlane(self):
-    def f(z):
-      z = (math.tan(self.rotation[0]) * (x - self.Position[0]) + math.tan(self.rotation[1]) * (y - self.Position[1]) + self.Position[2]) / math.tan(self.rotation[2])
+    def f(x, y):
+      z = math.tan(self.rotation[0]) * ( x - self.Position[0] ) + math.tan(self.rotation[1]) * ( y - self.Position[1]) + self.Position[2]
+      return z
 
   def VectorReflection(self):
-    Normal = (math.tan(self.rotation[0]), math.tan(self.rotation[1]), math.tan(self.rotation[2]))
+    Normal = (math.tan(self.rotation[0]), math.tan(self.rotation[1]), -1)
+    if self.body.Position[2] <= f(self.body.Position[0], self.body.Position[1]):
+      col = True
+
     if col == True:
+      self.body.Position[2] = f(self.body.Position[0], self.body.Position[1])
+      col = False
       self.body.Velocity[0] = self.body.Velocity[0] -2 * (self.body.Velocity[0]*Normal[0])
       self.body.Velocity[1] = self.body.Velocity[1] -2 * (self.body.Velocity[1]*Normal[1])
       self.body.Velocity[2] = self.body.Velocity[2] -2 * (self.body.Velocity[2]*Normal[2])
