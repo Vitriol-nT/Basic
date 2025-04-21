@@ -6,6 +6,6 @@ This thing, as you can read the code, does not exactly simulates
 the physics at all. instead it looks it works like it.
 
 it only simulates the ball bouncing on the ground.
-However, i will simulate ball bouncing on slopes using Vector reflections soon.
+However, i will simulate ball bouncing on slopes using Vector reflections soon. --> update: i did it but something is off bruh
 
 PS> covering this with UI would be also great.
