@@ -52,9 +52,9 @@ class Wall:
     if col == True:
       self.body.Position[2] = self.Plane(self.body.Position[0], self.body.Position[1])
       #reflection
-      self.body.Velocity[0] = self.body.Velocity[0] -2 * (self.body.Velocity[0] * Normal[0])
-      self.body.Velocity[1] = self.body.Velocity[1] -2 * (self.body.Velocity[1] * Normal[1])
-      self.body.Velocity[2] = self.body.Velocity[2] -2 * (self.body.Velocity[2] * Normal[2])
+      self.body.Velocity[0] = self.body.Velocity[0] + (-2 * Normal[0] * (self.body.Velocity[0] * Normal[0]))
+      self.body.Velocity[1] = self.body.Velocity[1] + (-2 * Normal[1] * (self.body.Velocity[1] * Normal[1]))
+      self.body.Velocity[2] = self.body.Velocity[2] + (-2 * Normal[2] * (self.body.Velocity[2] * Normal[2]))
       col = False
 
 class plotting:
